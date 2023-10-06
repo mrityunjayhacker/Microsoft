@@ -1,1 +1,534 @@
+<html>
+    <head>
+        <title>Microsoft International US UK IN</title>
+        <style>
+            /* Bordered form */
+/* Style all input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
 
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10004;";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10006;";
+}
+            .body {
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                margin: 10;
+            }
+            /* Add a black background color to the top navigation */
+.topnav {
+  background: white;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #3d9e8b;
+  color: white;
+}
+.header {
+  padding: 60px;
+  text-align: center;
+  background: url('OurTypeIMG.jpg');
+  color: white;
+  font-size: 30px;
+} 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 20;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.row:after button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.column {
+    text-align: center;
+  float: left;
+  width: 20%;
+  height: auto;
+}
+.column:hover {
+  width: 18%;
+}
+.textAtype {
+  margin:40;
+  color:azure;
+  text-align:center;
+  background: url('OurTypeIMG.jpg');
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%   {background-color:red; left:0px; top:0px;}
+  75%  {background-color:yellow; left:200px; top:0px;}
+  100%   {background-color:red; left:0px; top:0px;}
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+            /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+width: 500px;
+}
+
+/* Add styles to the form container */
+.form-container {
+width:500px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 500px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 500px;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.some-class {
+  box-sizing: border-box;
+}
+.loginpage {
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+.loginpage-content {
+    background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+.endloginpage {
+    /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+.accountpage {
+    margin: 20px;
+    padding: 324px;
+    text-align: center;
+  background: url('OurTypeIMG.jpg');
+  color: white;
+  font-size: 30px;
+}
+    
+
+
+        </style>
+        <style>
+div{
+   text-align: center;   /* Center Align */
+}
+</style>
+        <style>
+            .wele-chat {
+                text-align: center;
+                border: solid;
+                border-size: 3px;
+                border-color: black;
+                background: url('OurTypeIMG.jpg')
+            }
+        </style>
+    </head>
+    <body style="background-image: url('BGIMG.jpg');">
+        <div class="body">
+             <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+          <strong>Microsoft Is In Development</strong>PLEASE EXIT THIS WEBSITE<p1 style="background_color: blue;color: white;">https://docs.google.com/document/d/1UIZTRPaxDVgoG8PSh1UTpZ3lyQ7_Bp7ekQxrSP-kMEs/edit?usp=sharing</p1>
+                 <button href="https://docs.google.com/document/d/1UIZTRPaxDVgoG8PSh1UTpZ3lyQ7_Bp7ekQxrSP-kMEs/edit?usp=sharing">Find Out</button>
+        </div>
+          <marquee style="background_color:white;color:black;">Udibaba Contest 2 Winner Again Aadit</marquee>
+            <div class="topnav">
+                <a class="active" href="./index.html">Home</a>
+                <a href="./2nd.html">News</a>
+                <a href="./3rd.html">People</a>
+                <a href="./4th.html">About</a>
+                <a href="./5th.html">Wele-bank</a>
+                <a href="./6th.html">Funkless</a>
+                <a href="./7th.html">Softer</a>
+                <a href="./8th.html">CTI</a>
+            </div>
+            <!-- The Modal -->
+
+           
+            <div class="header">
+                <h1>Welestorm</h1>
+                <p>We Care</p>
+              </div>
+            <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1 style="background-color: red; color: white; text-align: center;">Daily News Related To Welestorm</h1>
+    <p>Welestorm's Website Is In Under Development And We Therby Request You To Navigate Your Fastest Way To The Exit As Website May Be Down In Some Time! Updates Have Not Been Applied Yet So Please Again Navigate To Your Nearest Exit From This Window. 457CB4ERROR21x990000</p>
+<h2>Mordern Stage 140</h2>  
+<p>Welestorm First Time Makes The Chat Feature, Developed To The Stage 140, FTW Still At Stage 139.</p>
+<h2>The Ultimate Hoax!</h2>
+<p>FTW Ceo And Founder Aadit Leaves FTW In Hands Of Aashish And Now Will FTW Survive In These Difficult Circumtances</p>
+<h2>Astron In Trouble</h2>
+<p>Astron CEO Lies About His Company Existence, Wants His Power Back In A Second</p>
+<h2>The Peace</h2>
+<p>FTW And Welestorm Will Continuie Sharing Their Power, 60% With FTW, 40% With Welestorm. Astron Wants To Be Revived Once Again, But Will Anyone Show This Much Care? Final Astron Decision Will Be Taken On 27/10/23 By Wele-Police And FTW-Police</p>
+  </div>
+
+</div>
+            <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("html");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+
+  modal.style.display = "block";
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+        
+        <br>
+        <h2 style="text-align: center;color:azure">Our Most Famous Products</h2>
+        <div class="row">
+            <div class="column" style="background-color:#aaa;">
+              <h2>Website</h2>
+              <p style="margin: 50">A Website Using Css, Java, Python and Java. Just Like This Homepage Website. Very Stylish</p>
+            </div>
+            <div class="column" style="background-color:#bbb;">
+              <h2>Application</h2>
+              <p style="margin: 50">Application Using Scratch, MIT app Inventor, Java, Python Tkinter and Enviornment</p>
+            </div>
+            <div class="column" style="background-color:#ccc;">
+              <h2>Game</h2>
+              <p style="margin: 50">This Content Can Be Only Found On Softer Technologies Of Game Development(STGD) Under Softer</p>
+            </div>
+            <div class="column" style="background-color:#ddd;">
+              <h2>Service</h2>
+              <p style="margin: 50">Services Like Card Management, Card Material, Inbox Cheker, Part Time Workers etc.</p>
+            </div>
+            <div class="column" style="background-color:#eee;">
+              <h2>Money</h2>
+              <p style="margin: 50">This Content Can Be Found Only On Wele-Bank!</p>
+            </div>
+          </div>
+          <div class="textAtype">
+            <h2>FAQ's Frequently Asked Questions</h2>
+          </div>
+          <div class="textAtype">
+            <br>
+            <h2>What Is Welestorm?</h2>
+            <h4>Nestled in the heart of the digital realm, Welestorm stands as a technological colossus, a titan of innovation and imagination. It is not merely a tech company; it is an orchestrator of digital dreams, a harbinger of the future, and a creator of its own virtual universe. At its core lies the lifeblood of this digital empire - Game Dollar X, the currency that powers an entire ecosystem of creativity and entertainment.<br>
+
+Welestorm is a master of weaving dreams into reality, with a quartet of subsidiaries that each contributes to this mesmerizing tapestry. Soft as the gentle caress of a summer breeze, Softter Studios is the artisan that crafts virtual worlds that transport you to realms beyond imagination. Their games are more than just lines of code; they are experiences that awaken dormant desires and stoke the fires of curiosity.<br>
+
+Funkless Comics, with their pens and pencils as their magic wands, breathe life into vivid characters and stories that leap off the pages. These comics are not just ink and paper; they are portals to parallel dimensions where heroes rise, villains fall, and the human spirit soars.<br>
+
+CTI, the digital architects of Welestorm, are the master builders of the virtual realm. They craft websites and applications that are not just functional but works of art, seamlessly merging design and functionality to create digital masterpieces.<br>
+
+And then there is XFOR, the conglomerate within Welestorm's empire, a vast constellation of diverse companies that cater to every digital whim. Within its sprawling expanse, you'll find Mailer for Mails, a conduit for connecting souls across the digital expanse. It's not just about emails; it's about forging connections, delivering messages that bridge gaps and create bonds.<br>
+
+Welestorm is not merely a company; it's a symphony of technology, creativity, and passion. It's a place where the virtual and the real blur, where dreams are given digital wings and sent soaring into the infinite possibilities of the digital cosmos. In the world of Welestorm, Game Dollar X is not just currency; it's the key that unlocks the doors to a universe of limitless potential, where imagination knows no bounds.<br></h4>
+            <br>
+            
+            
+          </div>
+          <div class="textAtype">
+            <br>
+            <h2> Why Does Everyone Buy Monts?</h2>
+            <h4>It's fascinating to learn that Monts was Welestorm's first currency and played a pivotal role in building the company's wide-ranging success. This financial milestone demonstrates the company's commitment to innovation and adaptability, as it transitioned from Monts to Game Dollar X, marking a significant step in its evolution.<br>
+
+Earning a profit of approximately $30,000 per month is a testament to Welestorm's ability to thrive in the dynamic world of technology and entertainment. Such success not only reflects the company's financial prowess but also its capacity to provide valuable services and products that resonate with a broad audience.<br>
+
+Welestorm's journey from Monts to Game Dollar X, and its continued profitability, underscores its unwavering dedication to pushing the boundaries of digital creativity and technology. It's a story of growth, adaptability, and innovation that cements Welestorm's position as a pioneering force in the tech industry.</h4>
+            <br>
+            
+            
+          </div>
+            <div class="textAtype">
+            <br>
+            <h2>Our Workers</h2>
+            <h4>It's impressive to hear that Welestorm has a dedicated team of talented individuals. With a roster that includes renowned professionals like Nichay, Aadit, Aashish, Mritunjay, Arnav, Sankalp, and Mihir, it's no wonder that the company has achieved such remarkable success.<br><br>
+
+Each of these individuals likely brings their unique skills and expertise to the table, contributing to Welestorm's creative and technological prowess. Their combined efforts must be instrumental in the company's ability to create innovative games, comics, websites, applications, and more, making Welestorm a leader in the tech and entertainment industry.<br><br>
+
+Having such a talented and experienced team undoubtedly solidifies Welestorm's position as a powerhouse in the digital realm. It's a testament to the company's commitment to excellence and its ability to attract top-notch talent.<br><br></h4>
+            <br>
+            
+            
+          </div>
+<div class="row">
+<div class="chat-popup" id="myForm">
+  <form action="mailto:siddy0060@gmail.com" class="form-container" method="post" action="mailto:siddy0060@gmail.com">
+    <h1>First Time! Chat With Welesotrm! This Feature Is Not In FTW! </h1>
+
+    <label for="msg"><b>Write Your Message With Your Name For Verification. Mail Application Window Will Popup!</b></label>
+    <textarea placeholder="To Welestorm Official Email" name="msg" required href="mailto:siddy0060@gmail.com"></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+</div>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<div class="accountpage">
+    <h3>Sign Up To Welestorm Official</h3>
+    <h4>Free, Forever, For Life</h4>
+    <h5>We Follow, We Care, We Develop, We Do, We Everything</h5>
+            <form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbyxi9Q1TcQ0yaazuQep7sdFhGo2jX7M1007LTYBFCJctGOwbTa32q1GWoCOYGbC0qdB/exec"
+>
+
+<input name="Email" type="email" placeholder="Email" required  style="height:50px; width:500px;;margin:10px;border-radius:25px">
+  <input name="Name" type="text" placeholder="Name" required  style="height:50px; width:500px;;margin:10px;border-radius:25px;">
+<input name="Password" type="Password" placeholder="Password" required  style="height:50px; width:500px;;margin:10px;border-radius:25px;">
+<button type="submit" style="height:50px; width:500px;;margin:10px;border-radius:25px">Send</button>
+
+</form>
+</div>
+            <div class="container">
+  <form action="https://script.google.com/macros/s/AKfycbyxi9Q1TcQ0yaazuQep7sdFhGo2jX7M1007LTYBFCJctGOwbTa32q1GWoCOYGbC0qdB/exec" method="POST">
+    <label for="usrname">Administrator Username</label>
+    <input type="usrname" id="usrname" name="usrname" required style="height:50px; width:1000px;;margin:10px;border-radius:25px;">
+
+    <label for="psw">Administrator Security Password</label>
+  <input type="psw" id="psw" name="psw" pattern="[D-G]" title="!Admin.Password_Enter.RequestParty6!" required style="height:50px; width:1000px;;margin:10px;border-radius:25px;">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+            <div class="wele-chat" >
+                <h3>Welestorm Security Protocols Activated</h3>
+                <h4>Whenever welestorm security protocols are activated, we get to know everything about your computer like<br>your conputer RAM, CPU and also whereever you click. This Is A <br>Beta Feature. To deactivate please enter welesotrm administrator username and password</h4>
+            </div>
+
+
+        
+        </div>
+    </body>
+</html>
